@@ -11,7 +11,7 @@ def index(request):
         d = datetime.strptime(date_str, '%Y-%m-%d').date()
         league = request.GET["league"]
         if d < util.start_of_season():
-            return render (request, "baseball/index.html", {"errormsg":"Please select a valid date"})
+            return render (request, "baseball/index.html", {"errormsg":"Please select a valid date, season began April 10, 1967", "datestr":"1967-04-10"})
         else:            
             if d >= util.end_of_season():
                 message = util.league_name(league) + " final standings"
